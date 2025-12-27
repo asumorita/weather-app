@@ -2,6 +2,7 @@ import streamlit as st
 import requests
 from datetime import datetime
 
+
 # ページ設定
 st.set_page_config(
     page_title="ASU 天気予報アプリ",
@@ -9,17 +10,22 @@ st.set_page_config(
     layout="centered"
 )
 
+
 # ヘッダー
 st.markdown("### 🏢 ASU")
 st.title("🌤️ 天気予報アプリ")
 st.write("今日と明日の天気をチェックしましょう！")
 
+
 st.markdown("---")
+
 
 # 位置情報入力
 st.subheader("📍 場所を入力してください")
 
+
 col1, col2 = st.columns(2)
+
 
 with col1:
     city = st.text_input(
@@ -27,6 +33,7 @@ with col1:
         value="Tokyo",
         help="英語で入力してください（例：Tokyo, Osaka, Yokohama）"
     )
+
 
 with col2:
     # よく使う都市のクイック選択
@@ -37,6 +44,7 @@ with col2:
     
     if quick_city != "選択してください":
         city = quick_city
+
 
 # 天気取得ボタン
 if st.button("🌤️ 天気を取得", type="primary", use_container_width=True):
@@ -181,6 +189,7 @@ if st.button("🌤️ 天気を取得", type="primary", use_container_width=True
         except Exception as e:
             st.error(f"❌ エラーが発生しました: {str(e)}")
 
+
 # 説明
 st.markdown("---")
 st.info("""
@@ -190,6 +199,7 @@ st.info("""
 3. 「天気を取得」ボタンをクリック
 4. 現在の天気と今日・明日の予報が表示されます
 """)
+
 
 # フッター
 st.markdown("---")
